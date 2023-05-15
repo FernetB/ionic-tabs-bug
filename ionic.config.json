@@ -1,0 +1,7 @@
+{
+  "name": "ionic-tabs-bug",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

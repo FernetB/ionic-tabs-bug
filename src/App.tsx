@@ -40,50 +40,56 @@ setupIonicReact();
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <Route exact path="/outside" render={() => <Outside />} />
-      <Route
-        path="/router"
-        render={() => (
-          <IonRouterOutlet ionPage>
-            <Route exact path={"/router/outside"} render={() => <Outside />} />
-          </IonRouterOutlet>
-        )}
-      />
-      <Route
-        path="/tabs"
-        render={() => (
-          <IonTabs>
-            <IonRouterOutlet>
-              <Route exact path="/tabs/tab1">
-                <Tab1 />
-              </Route>
-              <Route exact path="/tabs/tab2">
-                <Tab2 />
-              </Route>
-              <Route path="/tabs/tab3">
-                <Tab3 />
-              </Route>
-              <Route exact path="/">
-                <Redirect to="/tabs/tab1" />
-              </Route>
+      <IonRouterOutlet>
+        <Route exact path="/outside" render={() => <Outside />} />
+        <Route
+          path="/router"
+          render={() => (
+            <IonRouterOutlet ionPage>
+              <Route
+                exact
+                path={"/router/outside"}
+                render={() => <Outside />}
+              />
             </IonRouterOutlet>
-            <IonTabBar slot="bottom">
-              <IonTabButton tab="tab1" href="/tabs/tab1">
-                <IonIcon aria-hidden="true" icon={triangle} />
-                <IonLabel>Tab 1</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="tab2" href="/tabs/tab2">
-                <IonIcon aria-hidden="true" icon={ellipse} />
-                <IonLabel>Tab 2</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="tab3" href="/tabs/tab3">
-                <IonIcon aria-hidden="true" icon={square} />
-                <IonLabel>Tab 3</IonLabel>
-              </IonTabButton>
-            </IonTabBar>
-          </IonTabs>
-        )}
-      />
+          )}
+        />
+        <Route
+          path="/tabs"
+          render={() => (
+            <IonTabs>
+              <IonRouterOutlet>
+                <Route exact path="/tabs/tab1">
+                  <Tab1 />
+                </Route>
+                <Route exact path="/tabs/tab2">
+                  <Tab2 />
+                </Route>
+                <Route path="/tabs/tab3">
+                  <Tab3 />
+                </Route>
+                <Route exact path="/">
+                  <Redirect to="/tabs/tab1" />
+                </Route>
+              </IonRouterOutlet>
+              <IonTabBar slot="bottom">
+                <IonTabButton tab="tab1" href="/tabs/tab1">
+                  <IonIcon aria-hidden="true" icon={triangle} />
+                  <IonLabel>Tab 1</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="tab2" href="/tabs/tab2">
+                  <IonIcon aria-hidden="true" icon={ellipse} />
+                  <IonLabel>Tab 2</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="tab3" href="/tabs/tab3">
+                  <IonIcon aria-hidden="true" icon={square} />
+                  <IonLabel>Tab 3</IonLabel>
+                </IonTabButton>
+              </IonTabBar>
+            </IonTabs>
+          )}
+        />
+      </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
 );
